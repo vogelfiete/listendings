@@ -1,0 +1,35 @@
+#karte {
+    position: absolute;
+    z-index: 9;
+    background-color: #f1f1f1;
+    text-align: center;
+    border: 1px solid #d3d3d3;
+}
+
+#karteheader {
+    padding: 10px;
+  cursor: move;
+  z-index: 10;
+  background-color: #2196F3;
+  color: #fff;
+}
+
+#tabelle_screen {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    border: solid;
+    text-align: center;
+}
+
+.hover_td {
+    width: 35%;
+}
+
+.hover_td:active {
+    background-color: green;
+}

@@ -1,0 +1,28 @@
+{% extends "master.html" %}
+{% load static %}
+
+
+{% block head %}
+    <title>Krasse Liste</title>
+    <link rel="stylesheet" href="{% static 'style_karte.css' %}">
+    <script type="text/javascript" src="{% static 'script_karte.js' %}" defer></script>
+{% endblock %}
+
+{% block content %}
+
+    <table border="solid" id="tabelle_screen">
+        <tr id="tabelle_reihe">
+            <td id="td_links" class="hover_td"><placeholder>links</placeholder></td>
+            <td>
+                <div id="karte">
+                    <div id="karteheader"> BLUB </div>
+                        <p> Tabea </p>
+                        <p> ist </p>
+                        <p> doof </p>
+                </div>
+            </td>
+            <td id="td_rechts" class="hover_td"><placeholder>rechts</placeholder></td>
+        </tr>
+    </table>
+   
+{% endblock %}

@@ -1,0 +1,42 @@
+<html>
+    <head>
+        <title>Super Coole Liste</title>
+
+        <script>
+            function gut(ID_Text) {
+                const bla = document.getElementById(ID_Text).innerText.split(" ");
+                document.getElementById("1").innerHTML += "<li>" + bla[1] + "</li>";
+                document.getElementById(ID_Text).style.visibility="hidden";
+            };
+
+            function schlecht(ID_Text) {
+                document.getElementById("2").innerHTML += "<li>" + ID_Text.innerText + "</li>"
+            }
+        </script>
+    </head>
+    <body>
+        <h1>hallo
+        </h1>
+        <ul>
+            <li id="li1">
+                <button onclick="schlecht(li1)">links</button>
+                <span id="text1">bla</span>
+                <button onclick="gut('li1')" >rechts</button>
+            </li>
+            <li id="li2">
+                <button onclick="schlecht(text2)">links</button>
+                <span id="text2">blub</span>
+                <button onclick="gut(text2)" value="rechts"></button>
+            </li>
+        </ul>
+        
+        <ul id="1"> Gut
+
+        </ul>
+
+        <ul id="2"> Schlecht
+
+        </ul>
+        
+    </body>
+</html>
