@@ -1,17 +1,43 @@
 #karte {
     position: absolute;
     z-index: 9;
-    background-color: #f1f1f1;
+    background-color: rgba(200,200,200,0.5);
+    background-image: url(/media/koalabar.jpg);
+    background-position: 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    
     text-align: center;
     border: 1px solid #d3d3d3;
+    border-radius: 25px;
+    width: 90%;
+    height: 90%;
+    inset: 0;
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-right: auto;
+}
+#karte:before {
+    opacity: 0.5;
+}
+
+#karte:hover {
+    cursor: move;
+}
+#karte:active {
+    cursor: grab;
+}
+
+#karte_img {
+    height: 25%;
 }
 
 #karteheader {
     padding: 10px;
-  cursor: move;
-  z-index: 10;
-  background-color: #2196F3;
-  color: #fff;
+    cursor: move;
+    z-index: 10;
+    background-color: #2196F3;
+    color: #fff;
 }
 
 #tabelle_screen {
@@ -22,8 +48,13 @@
     bottom: 0;
     left: 0;
     right: 0;
-    border: solid;
     text-align: center;
+}
+
+#td_mitte {
+    position: relative;
+    
+   
 }
 
 .hover_td {

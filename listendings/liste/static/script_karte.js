@@ -1,14 +1,15 @@
 dragElement(document.getElementById("karte"));
 
 function dragElement(elmnt) {
+  recall();
   var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
-  if (document.getElementById(elmnt.id + "header")) {
-    /* if present, the header is where you move the DIV from:*/
+  /*if (document.getElementById(elmnt.id + "header")) {
+    /* if present, the header is where you move the DIV from:
     document.getElementById(elmnt.id + "header").onmousedown = dragMouseDown;
   } else {
     /* otherwise, move the DIV from anywhere inside the DIV:*/
     elmnt.onmousedown = dragMouseDown;
-  }
+  
 
   function dragMouseDown(e) {
     e = e || window.event;
@@ -29,17 +30,24 @@ function dragElement(elmnt) {
     pos2 = pos4 - e.clientY;
     pos3 = e.clientX;
     pos4 = e.clientY;
+    elmnt.style.marginLeft = "0";
     // set the element's new position:
-    elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
+    //elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
     elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
 
-    xpos = elmnt.offsetLeft - pos1;
-    ypos = elmnt.offsetTop - pos2;
-    if (xpos <= window.innerWidth*0.35) {
+    let xpos = elmnt.offsetLeft;
+    let ypos = elmnt.offsetTop - pos2;
+
+    let height = elmnt.offsetHeight;
+    let width = elmnt.offsetWidth-5;
+
+    console.log(xpos)
+
+    if (xpos <= -5) {
         console.log('links');
         document.getElementById("td_links").style.background = 'red';
     }
-    else if (xpos >= window.innerWidth-innerWidth*0.35) {
+    else if (xpos+width >= window.innerWidth*0.3) {
         console.log('rechts');
         document.getElementById("td_rechts").style.background = 'green';
 
@@ -60,8 +68,13 @@ function dragElement(elmnt) {
   }
 
   function recall() {
-    elmnt.style.top = window.innerHeight*0.5 + "px";
-    elmnt.style.left = window.innerWidth*0.5 + "px";
+    
+    elmnt.style.top = 0 + "px";
+    elmnt.style.left = 0 + "px"
+    elmnt.style.marginLeft = "auto";
+    document.getElementById("td_rechts").style.background = 'white';
+    document.getElementById("td_links").style.background = 'white';
+
 
   }
 };
