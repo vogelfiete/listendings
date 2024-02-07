@@ -46,16 +46,19 @@ function dragElement(elmnt) {
     if (xpos <= -5) {
         console.log('links');
         document.getElementById("td_links").style.background = 'red';
+        elmnt.style.boxShadow = "0px 0px 20px red";
     }
     else if (xpos+width >= window.innerWidth*0.3) {
         console.log('rechts');
         document.getElementById("td_rechts").style.background = 'green';
+        elmnt.style.boxShadow = "0px 0px 20px green";
 
     }
     else {
         console.log('mitte');
         document.getElementById("td_rechts").style.background = 'white';
         document.getElementById("td_links").style.background = 'white';
+        elmnt.style.boxShadow = "0 0 20px white";
     }
   }
 
@@ -74,6 +77,7 @@ function dragElement(elmnt) {
     elmnt.style.marginLeft = "auto";
     document.getElementById("td_rechts").style.background = 'white';
     document.getElementById("td_links").style.background = 'white';
+    elmnt.style.boxShadow = "0 0 20px white";
 
 
   }

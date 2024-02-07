@@ -1,24 +1,41 @@
+@font-face {
+    font-family: "facile-sans";
+    src: url(/media/facile-sans-regular.ttf);
+}
+
+body {
+    font-family: "facile-sans";
+}
+
 #karte {
     position: absolute;
     z-index: 9;
+    color: #ffffff;
+    font-size: larger;
+    font-weight: bold;
+    text-align: center;
+
     background-color: rgba(200,200,200,0.5);
     background-image: url(/media/koalabar.jpg);
     background-position: 50%;
     background-repeat: no-repeat;
     background-size: cover;
     
-    text-align: center;
+    
     border: 1px solid #d3d3d3;
+
     border-radius: 25px;
     width: 90%;
     height: 90%;
     inset: 0;
+
     margin-top: auto;
     margin-bottom: auto;
     margin-right: auto;
-}
-#karte:before {
-    opacity: 0.5;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #karte:hover {
@@ -26,19 +43,17 @@
 }
 #karte:active {
     cursor: grab;
+
+   /* -webkit-box-shadow:0 0 20px green; */
+    -moz-box-shadow: 0 0 20px white; 
+    box-shadow:0 0 20px green; 
 }
 
-#karte_img {
-    height: 25%;
+
+#karte_text {
+   color: #ffffff; 
 }
 
-#karteheader {
-    padding: 10px;
-    cursor: move;
-    z-index: 10;
-    background-color: #2196F3;
-    color: #fff;
-}
 
 #tabelle_screen {
     height: 100%;
