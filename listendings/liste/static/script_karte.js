@@ -53,15 +53,15 @@ function dragElement(elmnt) {
     }
     else if (xpos <= -5) {
         console.log('links');
-        document.getElementById("td_links").style.background = 'red';
-        elmnt.style.boxShadow = "0px 0px 20px red";
+        //document.getElementById("td_links").style.background = 'red';
+        elmnt.style.boxShadow = "0px 0px 40px red";
     }
     else if (xpos >= window.innerWidth*0.1) {
         console.log('rechts');
         console.log(xpos+width + '/' + window.innerWidth*0.1)
 
-        document.getElementById("td_rechts").style.background = 'green';
-        elmnt.style.boxShadow = "0px 0px 20px green";
+        //document.getElementById("td_rechts").style.background = 'green';
+        elmnt.style.boxShadow = "0px 0px 40px green";
 
     }
     else {
