@@ -37,6 +37,8 @@ function dragElement(elmnt) {
     // set the element's new position:
     //elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
     elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+    elmnt.style.right = 0;
+    left = elmnt.style.left
 
     let xpos = elmnt.offsetLeft;
     let ypos = elmnt.offsetTop - pos2;
