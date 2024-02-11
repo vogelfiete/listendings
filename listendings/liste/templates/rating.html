@@ -5,7 +5,8 @@
 {% block head %}
 
     <title>Krasse Liste</title>
-
+    <meta name="viewport" content="width=device-width, initial-scale=0.5, 
+    user-scalable=yes">
     <link rel="stylesheet" href="{% static 'style_karte.css' %}">
     <link rel="stylesheet" href="{% static 'style_general.css' %}">
     {{eintraege|json_script:"eintrag_data"}}
