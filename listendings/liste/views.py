@@ -17,11 +17,13 @@ def rating(request):
     template = loader.get_template('rating.html')
     liste = Liste.objects.get(id=1)
     desc_eintraege = list(liste.eintrag_set.values('description'))
+    erstereintrag = desc_eintraege[0]
     
 
     context = {
         'liste': liste,
         'eintraege': desc_eintraege,
+        'erstereintrag': erstereintrag,
 
     }
     return HttpResponse(template.render(context, request))

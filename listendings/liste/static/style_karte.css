@@ -28,6 +28,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
+
+    touch-action: none;
 }
 
 #karte:hover {
@@ -35,6 +37,7 @@
 }
 #karte:active {
     cursor: grab;
+    touch-action: none;
 
    /* -webkit-box-shadow:0 0 20px green; */
     -moz-box-shadow: 0 0 20px white; 
@@ -44,6 +47,7 @@
 
 #karte_text {
    color: #ffffff; 
+   font-size: 100px;
 }
 
 
@@ -54,8 +58,8 @@
     margin: auto;
     /*margin-top: 0 auto;
     bottom: 0;
-    left: 0;
-    right: 0;*/
+    left: 0;*/
+    right: 0;
     text-align: center;
 }
 
@@ -66,7 +70,7 @@
 }
 
 .hover_td {
-    width: 35%;
+    width: 10%;
 }
 
 .hover_td:active {

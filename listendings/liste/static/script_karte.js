@@ -1,34 +1,37 @@
 dragElement(document.getElementById("karte"));
+var i=0;
 
 function dragElement(elmnt) {
-  recall();
+  
+  inhaltaendern();
+  reset();
   var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
   /*if (document.getElementById(elmnt.id + "header")) {
     /* if present, the header is where you move the DIV from:
     document.getElementById(elmnt.id + "header").onmousedown = dragMouseDown;
   } else {
     /* otherwise, move the DIV from anywhere inside the DIV:*/
-    elmnt.onmousedown = dragMouseDown;
+    elmnt.ontouchstart = dragMouseDown;
   
 
   function dragMouseDown(e) {
     e = e || window.event;
     e.preventDefault();
     // get the mouse cursor position at startup:
-    pos3 = e.clientX;
+    pos3 = e.touches[0].clientX;
     pos4 = e.clientY;
-    document.onmouseup = closeDragElement;
+    document.ontouchend = closeDragElement;
     // call a function whenever the cursor moves:
-    document.onmousemove = elementDrag;
+    document.ontouchmove = elementDrag;
   }
 
   function elementDrag(e) {
     e = e || window.event;
     e.preventDefault();
     // calculate the new cursor position:
-    pos1 = pos3 - e.clientX;
+    pos1 = pos3 - e.touches[0].clientX;
     pos2 = pos4 - e.clientY;
-    pos3 = e.clientX;
+    pos3 = e.touches[0].clientX;
     pos4 = e.clientY;
     elmnt.style.marginLeft = "0";
     // set the element's new position:
@@ -43,13 +46,18 @@ function dragElement(elmnt) {
 
     console.log(xpos)
 
-    if (xpos <= -5) {
+    if (xpos > window.innerWidth) {
+      closeDragElement();
+    }
+    else if (xpos <= -5) {
         console.log('links');
         document.getElementById("td_links").style.background = 'red';
         elmnt.style.boxShadow = "0px 0px 20px red";
     }
-    else if (xpos+width >= window.innerWidth*0.3) {
+    else if (xpos >= window.innerWidth*0.1) {
         console.log('rechts');
+        console.log(xpos+width + '/' + window.innerWidth*0.1)
+
         document.getElementById("td_rechts").style.background = 'green';
         elmnt.style.boxShadow = "0px 0px 20px green";
 
@@ -65,21 +73,29 @@ function dragElement(elmnt) {
   function closeDragElement() {
     /* stop moving when mouse button is released:*/
     recall();
-    document.onmouseup = null;
-    document.onmousemove = null;
+    document.ontouchend = null;
+    document.ontouchmove = null;
     
   }
 
   function recall() {
+    reset()
     
+    i = i+1;
+    inhaltaendern();
+
+  }
+
+  function reset() {
     elmnt.style.top = 0 + "px";
-    elmnt.style.left = 0 + "px"
+    elmnt.style.left = 0 + "px";
+    elmnt.style.right = 0 + "px";
+    elmnt.style.bottom = 0 + "px";
+
     elmnt.style.marginLeft = "auto";
     document.getElementById("td_rechts").style.background = 'white';
     document.getElementById("td_links").style.background = 'white';
     elmnt.style.boxShadow = "0 0 20px white";
-    
-
   }
 
   
@@ -89,16 +105,18 @@ function dragElement(elmnt) {
 
 function inhaltaendern() {
   text = document.getElementById("karte_text");
-  var eintraege_text = document.getElementById('eintrag_data').innerHTML
-  //bla = eintraege.substring(1, eintraege.length-1)
-  //const alleE = bla.split(', ')
-  const alleE = JSON.parse(eintraege_text)
-  console.log(eintraege_text)
-  console.log(alleE)
-  console.log(alleE[0].description)
-  text.innerHTML = alleE[0].description
+  var eintraege_text = document.getElementById('eintrag_data').innerHTML;
+  const alleE = JSON.parse(eintraege_text);
+  var imax = alleE.length
+  if (i >= imax) {
+    
+    }
+  else if (i < imax) {
+    console.log(i);
+    console.log(alleE[i].description);
+    text.innerHTML = alleE[i].description;}
 };
-inhaltaendern();
+
 
 
 
