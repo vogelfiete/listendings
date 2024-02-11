@@ -78,9 +78,28 @@ function dragElement(elmnt) {
     document.getElementById("td_rechts").style.background = 'white';
     document.getElementById("td_links").style.background = 'white';
     elmnt.style.boxShadow = "0 0 20px white";
-
+    
 
   }
+
+  
 };
+
+
+
+function inhaltaendern() {
+  text = document.getElementById("karte_text");
+  var eintraege_text = document.getElementById('eintrag_data').innerHTML
+  //bla = eintraege.substring(1, eintraege.length-1)
+  //const alleE = bla.split(', ')
+  const alleE = JSON.parse(eintraege_text)
+  console.log(eintraege_text)
+  console.log(alleE)
+  console.log(alleE[0].description)
+  text.innerHTML = alleE[0].description
+};
+inhaltaendern();
+
+
 
   

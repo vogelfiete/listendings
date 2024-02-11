@@ -1,0 +1,40 @@
+{% extends "master.html" %}
+{% load static %}
+
+{% block head %}
+    <title>{{liste.name}}</title>
+    <link rel="stylesheet" href="{% static 'style_general.css' %}">
+    <script type="text/javascript" src="{% static 'script_liste.js' %}" defer></script>
+    </script>
+   
+    
+{% endblock %}
+
+{% block content %}
+
+    <div class="navi_bar">
+        <a class="current_tab" href="">Menü</a>
+        <a href="">Listen</a>
+        <a href="">Auswahl</a>
+        <a href=""></a>
+    </div>
+
+    <h1>{{liste.name}}<input id="btn1" type="button" value="+" onclick="formularU('eintrag_form')"></input></h1>
+
+    <form id="eintrag_form" method="post" action="" style="display: none">
+        {% csrf_token %}
+        <table>
+            {{EintragForm}}
+
+        </table>
+        <input type="submit" value="Submit">
+    </form>
+
+    <ul>
+        {% for x in eintraege %}
+            <li id="li_{{x.id}}">{{x.description}}<input id="checkbox_{{x.id}}" type="checkbox" onclick="durchstreichen(this.id)"></li>
+        {% endfor %}
+    </ul>
+    
+    
+{% endblock %}

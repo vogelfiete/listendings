@@ -1,0 +1,42 @@
+{% extends "master.html" %}
+{% load static %}
+
+
+{% block head %}
+    <title>Krasse Liste</title>
+
+    <link rel="stylesheet" href="{% static 'style_karte.css' %}">
+    <link rel="stylesheet" href="{% static 'style_general.css' %}">
+    {{eintraege|json_script:"eintrag_data"}}
+    <script>console.log("{{eintraege}}")</script>
+    <script type="text/javascript" src="{% static 'script_karte.js' %}" defer></script>
+{% endblock %}
+
+{% block content %}
+
+
+
+    <div class="navi_bar">
+        <a class="current_tab" href="">Menü</a>
+        <a href="">Listen</a>
+        <a href="">Auswahl</a>
+        <a href=""></a>
+    </div>
+
+    <table border="solid" id="tabelle_screen">
+        <tr id="tabelle_reihe">
+            <td id="td_links" class="hover_td"><placeholder>links</placeholder></td>
+            <td id="td_mitte">
+                <div id="karte">
+                    <span id="karte_text">
+                        Tabea ist doof
+                    </span>
+                    <!--<img id="karte_img" src="media/koalabar.jpg">-->
+                        
+                </div>
+            </td>
+            <td id="td_rechts" class="hover_td"><placeholder>rechts</placeholder></td>
+        </tr>
+    </table>
+   
+{% endblock %}

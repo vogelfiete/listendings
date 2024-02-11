@@ -1,0 +1,8 @@
+@font-face {
+    font-family: "facile-sans";
+    src: url(/media/facile-sans-regular.ttf);
+}
+
+body {
+    font-family: "facile-sans";
+}
