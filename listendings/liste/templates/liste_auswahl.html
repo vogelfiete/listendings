@@ -5,32 +5,43 @@
     <title>Menü</title>
     <link rel="stylesheet" href="{% static 'style_general.css' %}">
     <script type="text/javascript" src="{% static 'script_liste.js' %}" defer></script>
-    
+    <link rel="stylesheet" href="{% static 'style_navbar.css' %}">
+    <link rel="stylesheet" href="{% static 'style_liste_a.css' %}">
+    <meta name="viewport" content="width=device-width, 
+    user-scalable=no">
 {% endblock %}
 
 {% block content %}
 
-    <div class="navi_bar">
-        <a class="current_tab" href="">Menü</a>
-        <a href="">Listen</a>
-        <a href="">Auswahl</a>
-        <a href=""></a>
+<div class="parentDiv">
+    <div class="nav">
+      <ul class="ul_nav">
+        <a href="/"><li class="li_nav">Menü</li></a>
+        <a href="/lists/"><li class="li_nav">Listen</li></a>
+        <a href="/rate/"><li class="li_nav">Auswahl</li></a>
+      </ul>
     </div>
-    <h1>Alle Listen<input id="add_btn"  type="button" value="+" onclick="formularU('liste_form')"></h1>
+  </div>
+
+
+<div>
+    
+
+    <ul class="listen_liste"> Alle Listen
+        <input class="button-55"  type="button" value="+" onclick="formularU('liste_form')">
+        {% for x in allelisten %}
+            <li class="listen"><a href="{{x.id}}/">{{x.Name}}</a></li>
+        {% endfor %}
+    </ul>
 
     <form id="liste_form" method="post" action="" style="display: none;">
         {% csrf_token %}
+        Neue Liste
         <table>
             {{ListeForm}}
 
         </table>
         <input type="submit" value="Submit">
     </form>
-
-    <ul>
-        {% for x in allelisten %}
-            <li><a href="{{x.id}}/">{{x.name}}</a></li>
-        {% endfor %}
-    </ul>
-   
+</div> 
 {% endblock %}

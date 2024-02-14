@@ -1,0 +1,26 @@
+
+  .parentDiv {
+    position: absolute;
+    width: 100%;
+    background-color: black;
+    color: white;
+    margin: 0;
+    left: 0;
+    top: 0;
+    height: 20vw;
+    z-index: 5;
+  }
+  
+  .nav {
+    text-align: center;
+  }
+  
+  .ul_nav .li_nav{
+    display: inline-block;
+    padding: 0 5px;
+    color: white;
+    
+  }
+
+  /* CSS */
+  

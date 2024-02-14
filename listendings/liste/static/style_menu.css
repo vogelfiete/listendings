@@ -1,20 +1,62 @@
-.navi_bar {
-    visibility: hidden;
-    
+a:link {
+    text-decoration: none;
+    color:black;
+}
+a:visited {
+    color: black;
 }
 
 
+.auswahl_li {
+    border-radius: 25px;
+    border: 3px solid grey;
+    background-color: darkgrey;
+    height: 50vw;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 45px;
+    font-weight: bold;
+    margin-top: 50px;
+    margin-bottom: 50px;
 
-.auswahl_td {
-    position: relative;
-    width: 33%;
-    background-color: aqua;
+
 }
 
 .auswahl {
-    position: absolute;
-    margin: auto;
-    width: 100%;
-    height: 50%;
+    list-style-type: none;  
+    display: block;
+    position: absolute; 
+    list-style-position: inside;
+    padding: 0;
+    text-align: center;
+}
+
+body { margin: 0;}
+
+.image {
+    display: flex;
+    width:100vw;
+    height: 100vh; 
+    background: green;
+    background-image: url(/media/koalabar.jpg);
+    background-position: 50%;
+    background-size: cover;
+    text-align: center;
+    vertical-align: middle;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+
+}
+span {
+    color: lightgray;
+    font-size: 80px;
     
 }
+.content {
+  height: 100vw;
+
+}
+

@@ -5,5 +5,8 @@
 
 body {
     font-family: "facile-sans";
-    
+    font-size: 30px;
+}
+a:link {
+    text-decoration: none;
 }

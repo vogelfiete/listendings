@@ -5,9 +5,11 @@
 {% block head %}
 
     <title>Krasse Liste</title>
-    <meta name="viewport" content="width=device-width, initial-scale=0.5, 
-    user-scalable=yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1 
+    user-scalable=no">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fitty/2.2.6/fitty.min.js"></script>
     <link rel="stylesheet" href="{% static 'style_karte.css' %}">
+    <link rel="stylesheet" href="{% static 'style_navbar.css' %}">
     <link rel="stylesheet" href="{% static 'style_general.css' %}">
     {{eintraege|json_script:"eintrag_data"}}
     <script>console.log("{{eintraege}}")</script>
@@ -18,27 +20,46 @@
 
 
 
-    <div class="navi_bar">
-        <a class="current_tab" href="/">Menü</a>
-        <a href="">Listen</a>
-        <a href="">Auswahl</a>
-        <a href=""></a>
+<div class="parentDiv">
+    <div class="nav">
+      <ul class="ul_nav">
+        <a href="/"><li class="li_nav">Menü</li></a>
+        <a href="/lists/"><li class="li_nav">Listen</li></a>
+        <a href="/rate/"><li class="li_nav">Auswahl</li></a>
+      </ul>
     </div>
+  </div>
+
+    
 
     <table  id="tabelle_screen">
         <tr id="tabelle_reihe">
-            <td id="td_links" class="hover_td"><placeholder>links</placeholder></td>
+            <td id="td_links" class="hover_td"></td>
             <td id="td_mitte">
                 <div id="karte">
                     <span id="karte_text">
-                        {{erstereintrag.description}}
+                        {{erstereintrag.Beschreibung}}
                     </span>
                     <!--<img id="karte_img" src="media/koalabar.jpg">-->
                         
                 </div>
             </td>
-            <td id="td_rechts" class="hover_td"><placeholder>rechts</placeholder></td>
+            <td id="td_rechts" class="hover_td"></td>
         </tr>
     </table>
+
+    <div id='dialog' class='dialog' style="display: {{visibility}};">
+    <dialog id='dia_win' open>
+       <h2 class="dialog_text"> Wähle Bitte vorher eine Liste aus: </h2>
+       
+        <form id='listen_form' onsubmit='umschalten()' method='post' action="">
+            {% csrf_token %}
+            
+            {{SelectListeForm}}
+            <input id="submit_btn" type="submit" value='Submit'>
+        </form>
+        
+    </dialog>
+    </div>
    
 {% endblock %}

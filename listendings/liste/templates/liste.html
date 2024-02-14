@@ -6,35 +6,44 @@
     <link rel="stylesheet" href="{% static 'style_general.css' %}">
     <script type="text/javascript" src="{% static 'script_liste.js' %}" defer></script>
     </script>
-   
+    <link rel="stylesheet" href="{% static 'style_navbar.css' %}">
+    <link rel="stylesheet" href="{% static 'style_liste_a.css' %}">
+    <link rel="stylesheet" href="{% static 'style_liste.css' %}">
+    <meta name="viewport" content="width=device-width, 
+    user-scalable=no">
     
 {% endblock %}
 
 {% block content %}
 
-    <div class="navi_bar">
-        <a class="current_tab" href="">Menü</a>
-        <a href="">Listen</a>
-        <a href="">Auswahl</a>
-        <a href=""></a>
+<div class="parentDiv">
+    <div class="nav">
+      <ul class="ul_nav">
+        <a href="/"><li class="li_nav">Menü</li></a>
+        <a href="/lists/"><li class="li_nav">Listen</li></a>
+        <a href="/rate/"><li class="li_nav">Auswahl</li></a>
+      </ul>
     </div>
+  </div>
 
-    <h1>{{liste.name}}<input id="btn1" type="button" value="+" onclick="formularU('eintrag_form')"></input></h1>
+<div class="content">
+    <h1>{{liste.Name}}<input class="button-55" id="btn1" type="button" value="+" onclick="formularU('eintrag_form')"></input></h1>
 
-    <form id="eintrag_form" method="post" action="" style="display: none">
+    
+    <form id="eintrag_form" method="post" action="" style="display: none"> Neuer Eintrag
         {% csrf_token %}
         <table>
             {{EintragForm}}
 
         </table>
-        <input type="submit" value="Submit">
+        <input type="submit" value="Submit" class="btn button-55">
     </form>
 
-    <ul>
+    <ul class="listaaa listen_liste ">
         {% for x in eintraege %}
-            <li id="li_{{x.id}}">{{x.description}}<input id="checkbox_{{x.id}}" type="checkbox" onclick="durchstreichen(this.id)"></li>
+            <li class="listen" id="li_{{x.id}}">{{x.Beschreibung}}<input class="checkboxes" id="checkbox_{{x.id}}" type="checkbox" onclick="durchstreichen(this.id)"></li>
         {% endfor %}
     </ul>
-    
+</div>  
     
 {% endblock %}

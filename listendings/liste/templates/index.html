@@ -5,31 +5,34 @@
     <title>Menü</title>
     <link rel="stylesheet" href="{% static 'style_general.css' %}">
     <link rel="stylesheet" href="{% static 'style_menu.css' %}">
+    <meta name="viewport" content="width=device-width, 
+    user-scalable=no">
 {% endblock %}
 
 {% block content %}
 
-    <div class="navi_bar">
-        <a class="current_tab" href="">Menü</a>
-        <a href="">Listen</a>
-        <a href="">Auswahl</a>
-        <a href=""></a>
-    </div>
+<div class='image'><span>Tabeas <br/> coolere <br/> Liste <br/></span></div>
+<div class='content'>
 
-    <table class="auswahl">
-        <tr>
-            <td class="auswahl_td">
-                <a href="/lists/">Listen</a> 
-            </td>
-            <td class="auswahl_td">
-                <a href="/rate/">vorschläge</a>
-            </td>
-            <td class="auswahl_td">
+    <ul class="auswahl">
+       
+            <a href="/lists/">
+                <li class="auswahl_li">
+                Listen 
+                </li>
+            </a>
+            <a href="/rate/">
+                <li class="auswahl_li">
+                Vorschläge
+                </li>
+            </a>
+            <li class="auswahl_li">
                 <a href="">bla</a>
-            </td>
+            </li>
 
-        </tr>
         
-    </table>
-   
+        
+    </ul>
+
+</div>
 {% endblock %}
