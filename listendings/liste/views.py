@@ -15,7 +15,7 @@ def index(request):
 
 def rating(request):
     template = loader.get_template('rating.html')
-    liste = Liste.objects.get(id=14)
+    liste = Liste.objects.get(id=15)
     desc_eintraege = list(liste.eintrag_set.values('Beschreibung'))
     erstereintrag = desc_eintraege[0]
     visibility = 'flex'
