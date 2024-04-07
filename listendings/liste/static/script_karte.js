@@ -130,7 +130,7 @@ function inhaltaendern() {
   else if (i <= imax) {
 
     if (last_pos == "rechts") {
-      gewaehlt.push('►' + alleE[i-1].Beschreibung + '<br/>')
+      gewaehlt.push('►' + alleE[i].Beschreibung + '<br/>')
 
       console.log(gewaehlt)
     }

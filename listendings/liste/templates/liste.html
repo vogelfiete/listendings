@@ -4,6 +4,7 @@
 {% block head %}
     <title>{{liste.name}}</title>
     <link rel="stylesheet" href="{% static 'style_general.css' %}">
+
     <script type="text/javascript" src="{% static 'script_liste.js' %}" defer></script>
     </script>
     <link rel="stylesheet" href="{% static 'style_navbar.css' %}">
@@ -40,9 +41,16 @@
     </form>
 
     <ul class="listaaa listen_liste ">
+        <form method="post">
+            {% csrf_token %}
         {% for x in eintraege %}
-            <li class="listen" id="li_{{x.id}}">{{x.Beschreibung}}<input class="checkboxes" id="checkbox_{{x.id}}" type="checkbox" onclick="durchstreichen(this.id)"></li>
+            {% if x.done %}
+            <li style="text-decoration: line-through;"class="listen" id="li_{{x.id}}">{{x.Beschreibung}}<input class="checkboxes" id="checkbox_{{x.id}}" type="checkbox" onclick="durchstreichen(this.id)" name="done" checked></li>
+            {% else %}
+            <li class="listen" id="li_{{x.id}}">{{x.Beschreibung}}<input class="checkboxes" id="checkbox_{{x.id}}" type="checkbox" onclick="durchstreichen(this.id)" name="done"></li>
+            {% endif %}
         {% endfor %}
+        </form>
     </ul>
 </div>  
     

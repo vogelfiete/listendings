@@ -71,11 +71,14 @@ def liste(request, id):
     liste = Liste.objects.get(id=id)
     eintraege = liste.eintrag_set.all()
     template = loader.get_template('liste.html')
+    
+    bla = None
 
-
+    Eintrag.objects.filter().update(done=False)
 
     if request.method == "POST":
         formular = EintragForm(request.POST)
+        
         if formular.is_valid():
            data = formular.save(commit=False)
            data.listid = liste
@@ -85,9 +88,21 @@ def liste(request, id):
     else:
         formular = EintragForm()
 
+    
+
     context = {
         'liste': liste,
         'eintraege': eintraege,
         'EintragForm': formular,
+        'done': bla,
+    }
+    return HttpResponse(template.render(context, request))
+
+def bd(request):
+    template = loader.get_template('bd.html')
+
+
+    context = {
+
     }
     return HttpResponse(template.render(context, request))
